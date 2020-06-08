@@ -21,25 +21,29 @@
 
 <body style="margin: 0; padding: 0;">
 
-	<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
-		<tr>
-			<td align="center" bgcolor="#78ab46" style="padding: 40px 0 30px 0;">
-				<img src="cid:logo.png" alt="https://memorynotfound.com" style="display: block;" />
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#eaeaea" style="padding: 40px 30px 40px 30px;">
-				<p>Dear ${name},</p>
-				<p>Sending Email using Spring Boot with <b>Thymeleaf template !!!</b></p>
-				<p>Thanks</p>
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#777777" style="padding: 30px 30px 30px 30px;">
-				<p>${signature}</p>
-				<p>${location}</p>
-			</td>
-		</tr>
+	<table align="center" border="0" cellpadding="0" cellspacing="0" width="80%" style="border-collapse: collapse;">
+		<tbody border="0">
+			<tr>
+				<td style="padding: 10px 0 30px 0;"></td>
+			</tr>
+			<tr align="left" bgcolor="#78ab46">
+				<td border="5px" width="20%" style="padding: 5PX 10px 5px 10px;">File Name:</td>
+				<td border="5px" width="80%" style="padding: 5PX 10px 5px 10px;">${FileName}</td>
+			</tr>
+			<tr bgcolor="#eaeaea">
+				<td style="padding: 40px 30px 40px 30px;">
+					<p>Dear ${name},</p>
+					<p>Sending Email using Spring Boot with <b>Thymeleaf template !!!</b></p>
+					<p>Thanks</p>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#777777" style="padding: 30px 30px 30px 30px;">
+					<p>${signature}</p>
+					<p>${location}</p>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 
 </body>

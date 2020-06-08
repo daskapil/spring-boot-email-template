@@ -1,5 +1,7 @@
 package com.kapil.email;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.kapil.email.service.EmailService;
+import com.kapil.email.service.EmailServiceFreeMaker;
 
 @SpringBootApplication
 public class SpringBootEmailTemplateApplication implements ApplicationRunner {
@@ -19,6 +22,9 @@ public class SpringBootEmailTemplateApplication implements ApplicationRunner {
 
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private EmailServiceFreeMaker emailServiceFreeMaker;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootEmailTemplateApplication.class, args);
@@ -29,16 +35,24 @@ public class SpringBootEmailTemplateApplication implements ApplicationRunner {
 		log.info("Sending Email with Thymeleaf HTML Template Example");
 
 		Mail mail = new Mail();
-		mail.setFrom("test@gmail.com");
-		mail.setTo("sendTo@gmail.com");
+		mail.setFrom("testFrom@email.com");
+		mail.setTo("testTo@email.com");
 		mail.setSubject("Sending Email with Thymeleaf HTML Template Example");
+		
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("name", "Developer!");
-		model.put("location", "United States");
-		model.put("sign", "Java Developer");
+//		Map model =new HashMap<>();
+		model.put("today", LocalDate.now());
+		model.put("fileName", "Test File");
+		model.put("startTime", LocalDate.now());
+		model.put("endTime", LocalDate.now());
+		model.put("totalRecords", 100);
+		model.put("totalSuccess", 90);
+		model.put("totalFailed", 90);
+		model.put("totalSkipped", 10);
+		model.put("status", "OOB");
 		mail.setModel(model);
 
-		emailService.sendSimpleMessage(mail);
+		emailServiceFreeMaker.sendSimpleMessage(mail);
 	}
 
 }
